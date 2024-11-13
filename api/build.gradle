@@ -1,0 +1,13 @@
+tasks.named('bootJar'){
+    enabled = true
+}
+
+tasks.named('jar'){
+    enabled = false
+}
+
+dependencies {
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
+    implementation 'org.liquibase:liquibase-core:4.30.0'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+}

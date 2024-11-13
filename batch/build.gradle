@@ -1,0 +1,12 @@
+tasks.named('bootJar'){
+    enabled = true
+}
+
+tasks.named('jar'){
+    enabled = false
+}
+
+dependencies {
+    implementation 'org.liquibase:liquibase-core:4.30.0'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+}

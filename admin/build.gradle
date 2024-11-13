@@ -1,0 +1,15 @@
+
+//chooz-api 내부 build.gradle
+tasks.named('bootJar'){ // bootJar 세팅을 켜기
+    enabled = true
+}
+
+tasks.named('jar'){ // jar 설정은 끄기
+    enabled = false
+}
+
+dependencies {
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
+    implementation 'org.liquibase:liquibase-core:4.30.0'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+}
