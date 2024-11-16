@@ -27,7 +27,8 @@
 
 1. **QueryDSL 및 Mapper 생성폴더정의**: `root` 모듈의 `build.gradle`에 다음과 같이 정의 추가합니다.
 
-    ```groovy
+    ```
+    groovy
 
   allprojects {
 
