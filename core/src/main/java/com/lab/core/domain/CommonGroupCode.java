@@ -1,8 +1,11 @@
 package com.lab.core.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.io.Serializable;
 import java.util.List;
@@ -14,12 +17,19 @@ import java.util.List;
 public class CommonGroupCode extends AbstractAuditingEntity implements Serializable {
 
     @Id
-    @Column(name = "common_group_code", length = 20, nullable = false)
+    @Size(max = 120)
+    @Column(name = "common_group_code", nullable = false, length = 120)
     private String commonGroupCode;
 
-    @Column(name = "common_group_code_name", length = 50, nullable = false)
+    @Size(max = 120)
+    @NotNull
+    @Column(name = "common_group_code_name", nullable = false, length = 120)
     private String commonGroupCodeName;
 
+    @NotNull
+    @ColumnDefault("1")
+    @Column(name = "is_used", nullable = false, columnDefinition = "TINYINT(1) DEFAULT 1")
+    private Boolean isUsed = true;
 
     @OneToMany(mappedBy = "commonGroupCode")
     private List<CommonCode> commonCodes;

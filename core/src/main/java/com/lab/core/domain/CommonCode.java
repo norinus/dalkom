@@ -12,21 +12,15 @@ import java.io.Serializable;
 @Entity
 @ToString
 @Table(name = "tbl_common_code")
-@IdClass(CommonCodeId.class)
 public class CommonCode extends AbstractAuditingEntity implements Serializable {
 
-    @Id
-    @Column(name = "common_code", length = 20, nullable = false)
-    private String commonCode;
+    @EmbeddedId
+    private CommonCodeId id;
 
-    @Column(name = "common_code_name", length = 50, nullable = false)
+    @Column(name = "common_code_name", length = 120, nullable = false)
     private String commonCodeName;
 
     @Column(name = "is_used", nullable = false, columnDefinition = "TINYINT(1) DEFAULT 1")
     private boolean isUsed;
 
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "common_group_code", nullable = false)
-    private CommonGroupCode commonGroupCode;
 }

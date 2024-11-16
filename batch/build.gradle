@@ -8,8 +8,13 @@ tasks.named('jar'){
 
 dependencies {
     implementation project(':core')
+
+    // 리퀴베이스 DB 버전 관리 의존성 추가
     implementation 'org.liquibase:liquibase-core:4.30.0'
+
+    // MYSQL 데이터베이스 의존성 추가
     runtimeOnly 'com.mysql:mysql-connector-j'
+
     // Spring Batch 스타터 의존성 (배치 처리 기능 제공)
     implementation 'org.springframework.boot:spring-boot-starter-batch'
 
